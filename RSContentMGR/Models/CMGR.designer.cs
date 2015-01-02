@@ -119,7 +119,7 @@ namespace RSContentMGR.Models
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
+		// these added as private memebers 
 		private int _cid;
 		
 		private string _cname;
