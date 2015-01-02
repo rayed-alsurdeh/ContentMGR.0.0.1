@@ -13,6 +13,7 @@ namespace RSContentMGR.Controllers
         RSContentMGR.Models.CMGRDataContext db = new Models.CMGRDataContext();
         public ActionResult Index()
         {
+            // my comment goes here 
             var catgs = db.getCtgs();
             return View(catgs.ToList());
         }
