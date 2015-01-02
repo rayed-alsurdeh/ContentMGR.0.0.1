@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RSContentDB" Class="CMGRDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LYAN-PC;Initial Catalog=RSContentDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RSContentDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="cid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cname" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="cdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="cowner" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Category_item" Member="items" ThisKey="cid" OtherKey="category" Type="item" />
+      <Association Name="Category_rescource" Member="rescources" ThisKey="cid" OtherKey="catgID" Type="rescource" />
+    </Type>
+  </Table>
+  <Table Name="dbo.item" Member="items">
+    <Type Name="item">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="idate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="iowner" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="category" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="item_rescource" Member="rescources" ThisKey="id" OtherKey="itemID" Type="rescource" />
+      <Association Name="Category_item" Member="Category1" ThisKey="category" OtherKey="cid" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.rescource" Member="rescources">
+    <Type Name="rescource">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="itemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="catgID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="path" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="Category_rescource" Member="Category" ThisKey="catgID" OtherKey="cid" Type="Category" IsForeignKey="true" />
+      <Association Name="item_rescource" Member="item" ThisKey="itemID" OtherKey="id" Type="item" IsForeignKey="true" />
+      <Association Name="resType_rescource" Member="resType" ThisKey="type" OtherKey="id" Type="resType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.resType" Member="resTypes">
+    <Type Name="resType">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="resType_rescource" Member="rescources" ThisKey="id" OtherKey="type" Type="rescource" />
+    </Type>
+  </Table>
+  <Function Name="dbo.getCtgs" Method="getCtgs">
+    <ElementType Name="getCtgsResult">
+      <Column Name="cname" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="cdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="idate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cowner" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="items" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="res" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

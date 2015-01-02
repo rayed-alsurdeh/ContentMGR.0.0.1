@@ -1,0 +1,46 @@
+﻿@model  List<RSContentMGR.Models.getCtgsResult>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<section class="mainContent">
+    <header>
+        <hgroup>
+            <h1 class="page-title">Categories Preview </h1>
+            <h2 class="page-desc">Captured data about categories is listed </h2>
+        </hgroup>
+    </header>
+    <section class="data-table">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>select</th>
+                    <th>Category</th>
+                    <th>Created On</th>
+                    <th>Last Updated</th>
+                    <th>#Items</th>
+                    <th>#Resources</th>
+                    <th>links</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                    foreach (var item in @Model)
+                    {
+                        ViewBag.i = i;
+                    @Html.Partial("~/Views/Home/_getCatgInfo.cshtml", item, new ViewDataDictionary { { "i",i}});
+                    i++;
+                    }
+                }
+
+            </tbody>
+
+
+        </table>
+
+    </section>
+
+</section>

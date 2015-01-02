@@ -1,0 +1,155 @@
+﻿body {
+    margin:0;
+    padding:0;
+    
+
+}
+
+section#container {
+    position:relative;
+    padding:0;     
+    width:80%;
+    top:40px;
+    left:10%;
+    background-color:rgb(125, 198, 122);
+    height:100%;
+    margin-bottom:0;
+    -moz-border-radius:20px;
+    border-radius: 20px 20px ;
+    border-color:rgba(125, 198, 122,0.5);
+    padding-top:2px;
+    border-style:groove;
+    border-width:10px;
+    
+     
+}
+
+header#header {
+    margin:0;
+    width:100%;
+    height:150px;
+    margin-top:0;
+    background-color:rgba(29, 196, 58,0.5);
+    border-radius: 10px 10px ;
+}
+
+header nav#nav {
+    position: relative;
+    top: 80px;
+    width: 100%;
+ 
+}
+
+    header nav#nav ul {
+        list-style: none;
+        padding: 0px 15%;
+        width: 100%;
+    }
+    header nav#nav li {
+        width:15%;
+        height: 40px;
+        display: inline-block;
+        float:left;
+         
+        margin-right:1%;
+        text-align:center;
+        border-radius: 10px 10px ;
+    }
+        header nav#nav li a {             
+            text-decoration:none;
+            line-height:40px;
+             background-color:rgb(128, 128, 128) ;
+            border-radius: 10px 10px ;
+            color:white;
+            display:block;
+            transition:background-color 2s;
+        }
+        header nav#nav li a:hover {
+             background-color:rgb(221, 211, 94);
+             font-weight:bold;
+             color:green;
+             border:groove;
+        }
+
+section.mainContent {
+    
+}
+h1.page-title {
+
+    font-family:Arial;
+    text-align:center;
+    font-size:2em;     
+    color:rgb(211, 232, 233);
+    height:10px;
+}
+
+h2.page-desc {
+    font-family:Arial;
+    text-align:center;
+    font-size:0.8em;
+     font-size:1.5em;     
+    color:rgb(211, 232, 233);
+    font-style:italic;
+    text-shadow:10px rgb(221, 211, 94);
+    height:10px;
+}
+
+section.data-table {
+    
+    margin-top:30px;
+    width:96%;
+   background-color:rgba(128, 128, 128,0.8) ;     
+   border-radius: 10px 10px ;   
+   padding:1% 2%;
+     
+}
+
+    section.data-table table.table {
+        color: rgb(221, 211, 94);
+        font-size: 1.1em;
+        width: 100%;
+        border-style:solid;
+        border-width:1px;
+        border-color:rgb(211, 232, 233);
+        border-spacing:0;
+        border-radius: 10px 10px ;   
+    }
+
+        section.data-table table.table tr {
+            line-height: 40px;
+            border-style: solid;
+            border-width: 10px;
+  
+        }
+        section.data-table table.table thead {
+             background-color:rgba(221, 211, 94,0.6);
+                color:green;
+                opacity:0.8;
+                font-weight:lighter;
+        }
+
+            section.data-table table.table tr {
+                border-style: solid;
+                border-width: 1px;
+                transition:background-color 1s; 
+            }
+            section.data-table table.table thead tr th,section.data-table table.table tbody tr td {
+                
+                border-bottom: solid;
+                border-bottom-width: 1px;
+                border-bottom-color:rgb(211, 232, 233);
+                text-align:center;
+                
+            }
+         
+            section.data-table table.table tbody tr:hover {
+                background-color:rgba(221, 211, 94,0.9);
+                color:white;
+                cursor:pointer;
+            }
+
+.row-selected {
+    background-color: rgba(29, 196, 58,0.5);
+    color:white;
+    cursor: pointer;
+}
